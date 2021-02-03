@@ -18,6 +18,10 @@ export class CreateToDo1612306396982 implements MigrationInterface {
                     type: 'varchar'
                 },
                 {
+                    name: 'hours',
+                    type: 'varchar'
+                },
+                {
                     name: 'created_at',
                     type: 'timestamp',
                     default: 'now()',
@@ -32,6 +36,7 @@ export class CreateToDo1612306396982 implements MigrationInterface {
     }
 
     public async down(queryRunner: QueryRunner): Promise<void> {
+        await queryRunner.dropTable('todo')
     }
 
 }

@@ -4,4 +4,7 @@ import {InputType, Field} from 'type-graphql';
 export class CreateToDoInput {
     @Field()
     name: string;
+
+    @Field()
+    hours: string;
 }

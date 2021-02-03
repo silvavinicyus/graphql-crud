@@ -12,6 +12,10 @@ export class ToDo extends BaseEntity {
     @Column()
     name: string;
 
+    @Field(() => String)
+    @Column()
+    hours: string;
+
     @Field(() => Date)
     @CreateDateColumn()
     created_at: Date;
