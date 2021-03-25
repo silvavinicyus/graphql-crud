@@ -19,9 +19,26 @@ export class ToDoResolver {
 
     @Mutation(() => ToDo)
     async createToDo(@Arg("data") data: CreateToDoInput){
-        const todo = ToDo.create(data);
-        await todo.save();
+        const todo = ToDo.create(data);        
+        await todo.save();        
         return todo;
+    }
+
+    @Mutation(() => ToDo)
+    async makeTodoDone(@Arg("id") id: string){
+        const todoExists = await ToDo.findOne({where: {id}});
+
+        if(!todoExists){
+            throw new Error(`The user ${id} does not exist!`);
+        }
+
+        Object.assign(todoExists, {
+            done: true
+        })
+
+        await todoExists.save();
+
+        return todoExists;
     }
 
     @Mutation(() => ToDo)

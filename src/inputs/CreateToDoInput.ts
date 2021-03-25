@@ -7,4 +7,7 @@ export class CreateToDoInput {
 
     @Field()
     hours: string;
+
+    @Field()
+    description: string;
 }

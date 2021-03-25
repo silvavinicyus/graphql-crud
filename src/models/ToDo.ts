@@ -3,7 +3,7 @@ import { BaseEntity, Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, U
 
 @ObjectType()
 @Entity('todo')
-export class ToDo extends BaseEntity {
+export class ToDo extends BaseEntity{
     @Field(() => ID)
     @PrimaryGeneratedColumn('uuid')
     id: string;
@@ -14,7 +14,15 @@ export class ToDo extends BaseEntity {
 
     @Field(() => String)
     @Column()
+    description: string;
+
+    @Field(() => String)
+    @Column()
     hours: string;
+
+    @Field(() => Boolean)
+    @Column()
+    done: boolean;
 
     @Field(() => Date)
     @CreateDateColumn()
@@ -23,4 +31,11 @@ export class ToDo extends BaseEntity {
     @Field(() => Date)
     @UpdateDateColumn()
     updated_at: Date;
+
+    constructor(){
+        super();
+        if(!this.done) {
+            this.done = false;
+        }
+    }
 }

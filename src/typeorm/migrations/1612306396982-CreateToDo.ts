@@ -22,6 +22,14 @@ export class CreateToDo1612306396982 implements MigrationInterface {
                     type: 'varchar'
                 },
                 {
+                    name: 'description',
+                    type: 'varchar'
+                },
+                {
+                    name: 'done',
+                    type: 'boolean',                    
+                },
+                {
                     name: 'created_at',
                     type: 'timestamp',
                     default: 'now()',

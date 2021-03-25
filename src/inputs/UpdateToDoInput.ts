@@ -7,4 +7,7 @@ export class UpdateToDoInput {
 
     @Field()
     hours: string;
+
+    @Field()
+    description: string;
 }
